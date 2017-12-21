@@ -1,0 +1,27 @@
+﻿<Window x:Class="HRMS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HRMS"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="500" Width="900"  MaxHeight="500" MaxWidth="900" MinHeight="500" MinWidth="900">
+    <StackPanel Background="#FFF0EEEE">
+        <Grid Background="#FFF6F6F6" Height="81" Margin="0,0,-0.4,0">
+            <TextBox  Text="Search Employee Name" TextWrapping="Wrap" MaxWidth="300"  BorderThickness="0" Name="Search" Background="White" Foreground="Black" FontSize="13" Margin="0,22,386,25"   Width="259" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Right" Height="34" GotFocus="Search_GotFocus" KeyUp="Search_KeyUp_1" />
+            <Button Background="Transparent" BorderThickness="0" x:Name="srchbtn" Margin="480,22,386,28" Click="srchbtn_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="search-icon.png"  Stretch="Uniform" Width="17" Height="22"/>
+                </StackPanel>
+            </Button>
+            <Label   HorizontalAlignment="Left" x:Name="logo" Content="HR/MS" Foreground="#FF4D624C" FontSize="40" FontFamily="Stencil" Margin="46,0,0,12" VerticalAlignment="Bottom" />
+            <Button   Focusable="False" BorderThickness="0" x:Name="AddEmployee"  Background="Transparent" Content="ADD EMPLOYEE" Foreground="#15ce19" FontSize="20" FontFamily="Stencil" Margin="20" Click="AddEmployee_Click" Cursor="Hand" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalContentAlignment="Bottom" VerticalAlignment="Center"  />
+            <Button Cursor="Hand" HorizontalAlignment="Right" Focusable="False" x:Name="AddDepartment" BorderThickness="0" Background="Transparent" Content="ADD DEPARTMENT" Foreground="#15ce19" FontSize="20" FontFamily="Stencil" Margin="0,20,177,20" Click="AddDepartment_Click" VerticalAlignment="Center"  />
+
+        </Grid>
+        <ComboBox BorderThickness="0"  Background="White" x:Name="DepcomboBox" Margin="650,20,59.6,0" SelectionChanged="DepcomboBox_SelectionChanged"/>
+        <ListBox BorderThickness="0" x:Name="listBox" Height="252" Margin="0,10,-0.4,20" Background="{x:Null}"/>
+        <Button BorderThickness="0" Background="Transparent" Foreground="#15ce19" x:Name="Reload" Content="Reload"  Click="button_Click" Height="46" Margin="751,-5,0,0"  />
+    </StackPanel>
+</Window>
