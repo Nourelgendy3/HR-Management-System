@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMS", "WpfApp3\HRMS.csproj", "{C8193EAF-806D-41C1-AD8C-75554BC53A75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR-Management-System", "HR-Management-System\HR-Management-System.csproj", "{C8193EAF-806D-41C1-AD8C-75554BC53A75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
