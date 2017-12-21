@@ -16,8 +16,8 @@
         <TextBox BorderThickness="0" x:Name="DepartmentBox" MaxLength="5" HorizontalAlignment="Left" Height="25" Margin="83,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Background="White"/>
         <Label x:Name="label4" Content="Date :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="243,105,0,0"/>
         <TextBox BorderThickness="0" x:Name="DateBox" MaxLength="10" HorizontalAlignment="Left" Height="25" Margin="243,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Background="White"/>
-        <Button Background="#15ce19" x:Name="AddEmpBtn" Content="Add" Margin="182,177,192.6,0" VerticalAlignment="Top" Foreground="#FFFDFBFB" Click="Addbtn_Click"/>
-        <Image Source="info.png" x:Name="image" HorizontalAlignment="Right" Height="55" VerticalAlignment="Top" Width="63" Margin="0,11,34.6,0"/>
+        <Button  Style="{StaticResource MaterialDesignFlatButton}" Background="#15ce19" x:Name="AddEmpBtn" Content="Add" Margin="0,0,0,20" VerticalAlignment="Bottom" Foreground="#FFFDFBFB" Click="Addbtn_Click" Width="100" Height="30"/>
+        <Image Source="/HRMS;component/assets/info.png" x:Name="image" HorizontalAlignment="Right" Height="55" VerticalAlignment="Top" Width="63" Margin="0,11,34.6,0"/>
 
     </Grid>
 </Window>

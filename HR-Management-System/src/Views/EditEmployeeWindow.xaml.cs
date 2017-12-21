@@ -20,11 +20,12 @@ namespace HRMS
     public partial class EditEmployeeWindow : Window
     {
         string BeforeEditId;
+
         public EditEmployeeWindow()
         {
             InitializeComponent();
-            
         }
+
         private void EditLoad(object sender, RoutedEventArgs e)
         {
             BeforeEditId = EditIdBox.Text;
@@ -40,12 +41,11 @@ namespace HRMS
             if (checkdep != null)
             {
                 FileControls.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
+                HomeWindow.reload(FileControls.getArrayEmp());
                 this.Close();
             }
             else
-                System.Windows.MessageBox.Show(" department isn't valid ");
-
-            
+                System.Windows.MessageBox.Show("Department is invalid");
         }
     }
 }

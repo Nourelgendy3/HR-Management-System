@@ -32,6 +32,7 @@ namespace HRMS
             if (checkdep != null)
             {
                 FileControls.addEmployee(id, name, date, dep);
+                HomeWindow.reload(FileControls.getArrayEmp());
                 this.Close();
             }
             else

@@ -24,15 +24,13 @@ namespace HRMS
             InitializeComponent();
         }
 
-        
-
         private void AddDepBtn_Click(object sender, RoutedEventArgs e)
         {
             string depid = DepNoBox.Text;
             string depName = DepNameBox.Text;
-            FileControls.addDepartment(depid, depName);           
+            FileControls.addDepartment(depid, depName);
+            HomeWindow.reload(FileControls.getArrayEmp());
             this.Close();
-
         }
 
         private void DepNameBox_TextChanged(object sender, TextChangedEventArgs e)

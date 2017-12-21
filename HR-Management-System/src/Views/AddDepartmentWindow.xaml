@@ -12,8 +12,8 @@
         <TextBox BorderThickness="0" MaxLength="5" x:Name="DepNoBox" Height="25" Margin="40,70,211.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="White"/>
         <Label x:Name="label2" Content="Department Name :&#xA;" Margin="34,96,0,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Left" VerticalContentAlignment="Center" Width="109"/>
         <TextBox BorderThickness="0" MaxLength="20" x:Name="DepNameBox" Height="25" Margin="40,122,211.6,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="White" TextChanged="DepNameBox_TextChanged" />
-        <Button Background="#15ce19" x:Name="AddDepBtn" Content="Add" Margin="158,159,158.6,0" VerticalAlignment="Top" Foreground="#FFFDFBFB" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="AddDepBtn_Click" />
-        <Image Source="houses.png" Margin="263,48,57.6,103.6"></Image>
+        <Button Style="{StaticResource MaterialDesignFlatButton}" Background="#15ce19" x:Name="AddDepBtn" Content="Add" Margin="0,0,0,20" VerticalAlignment="Bottom" Foreground="#FFFDFBFB" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="AddDepBtn_Click" HorizontalAlignment="Center" Width="100" Height="30" />
+        <Image Source="/HRMS;component/assets/houses.png" Margin="263,48,57.6,103.6"></Image>
     </Grid>
 
 </Window>

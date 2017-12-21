@@ -116,7 +116,7 @@ namespace HRMS
             penIcon.Kind = PackIconKind.Pencil;
             penIcon.Width = 24;
             penIcon.Height = 24;
-            penIcon.Foreground = new SolidColorBrush(Color.FromRgb(21, 206, 60));
+            penIcon.Foreground = new SolidColorBrush(Color.FromRgb(45, 204, 112));
             editBtn.Content = penIcon;
 
             innerContent.Children.Add(left);

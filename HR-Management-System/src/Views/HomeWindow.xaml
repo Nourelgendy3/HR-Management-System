@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="HR Mangement System" Height="600" Width="800"  MinHeight="600" MinWidth="800">
     <Grid Name="body" Background="#f3f3f3">
-        <Grid x:Name="header" Background="#FFF6F6F6" Height="80" Margin="0" VerticalAlignment="Top">
-            <TextBlock x:Name="logo" Foreground="#FF4D624C"  FontFamily="Stencil" Margin="50,0,0,0" VerticalAlignment="Center" Text="HR/MS" FontSize="40" HorizontalAlignment="Left" Cursor="Hand"/>
+        <Grid x:Name="header" Background="#fff6f6f6" Height="80" Margin="0" VerticalAlignment="Top">
+            <TextBlock x:Name="logo" FontFamily="Stencil" FontWeight="ExtraBold" Margin="20,0,0,0" VerticalAlignment="Center" Text="HR/MS" FontSize="40" HorizontalAlignment="Left" Cursor="Hand"/>
             <TextBox  materialDesign:HintAssist.Hint="Search for Employee Name" TextWrapping="Wrap" MaxWidth="300"  BorderThickness="0" x:Name="Search" Background="White" Foreground="Black" FontSize="13" Margin="0" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Height="35" KeyUp="submitSearch" HorizontalContentAlignment="Left" Padding="3,0,0,0" Width="300" />
 
             <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" HorizontalAlignment="Right" Margin="0,0,15,0">
@@ -19,7 +19,7 @@
                 </StackPanel>
             </materialDesign:PopupBox>
         </Grid>
-
+        <Separator Height="1" VerticalAlignment="Top" Margin="0,80,0,0" Background="#bababa" Opacity="0.3"></Separator>
         <ComboBox BorderThickness="0" Background="White" x:Name="DepcomboBox" Margin="0,93,60,0" SelectionChanged="DepcomboBox_SelectionChanged" VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalContentAlignment="Center" Height="30" Padding="20,0,10,0" Cursor="Hand"/>
         <Separator Margin="30,130,30,0" Background="#e0e0e0" Height="10" VerticalAlignment="Top"></Separator>
         <ScrollViewer Name="content" VerticalScrollBarVisibility="Auto" Margin="0,136,0,0" VerticalAlignment="Top" Padding="0"/>
