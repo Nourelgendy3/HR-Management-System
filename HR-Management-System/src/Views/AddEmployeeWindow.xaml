@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRMS"
         mc:Ignorable="d"
+        Loaded="addEmpLoad"
         Title="employee" Height="268.537" Width="455.854" MaxHeight="268.537" MaxWidth="455.854" >
     <Grid Background="#FFF9F7F7">
         <Label x:Name="label" Content="Employee ID :" HorizontalAlignment="Left" Margin="78,51,0,0" VerticalAlignment="Top"/>
@@ -12,8 +13,8 @@
         <Label Foreground="#15ce19" x:Name="label1" Content="Add Employee" Margin="153,1,144.6,0" VerticalAlignment="Top" Background="{x:Null}" FontSize="20" FontWeight="Bold" FontStyle="Italic" HorizontalContentAlignment="Center"/>
         <Label x:Name="label2" Content="Employee Name :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="237,50,0,0"/>
         <TextBox BorderThickness="0" x:Name="nameBox" MaxLength="20" HorizontalAlignment="Left" Height="25" Margin="243,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Background="White"/>
-        <Label x:Name="label3" Content="Department No : &#xA;" HorizontalAlignment="Left" Margin="83,105,0,0" VerticalAlignment="Top"/>
-        <TextBox BorderThickness="0" x:Name="DepartmentBox" MaxLength="5" HorizontalAlignment="Left" Height="25" Margin="83,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Background="White"/>
+        <Label x:Name="label3" Content="Department:" HorizontalAlignment="Left" Margin="83,105,0,0" VerticalAlignment="Top"/>
+        <ComboBox BorderThickness="0" Background="White" x:Name="DepartmentBox" Margin="0,131,232.6,0"  VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalContentAlignment="Center" Height="30" Padding="20,0,10,0" Cursor="Hand" Width="129"/>
         <Label x:Name="label4" Content="Date :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="243,105,0,0"/>
         <TextBox BorderThickness="0" x:Name="DateBox" MaxLength="10" HorizontalAlignment="Left" Height="25" Margin="243,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Background="White"/>
         <Button  Style="{StaticResource MaterialDesignFlatButton}" Background="#15ce19" x:Name="AddEmpBtn" Content="Add" Margin="0,0,0,20" VerticalAlignment="Bottom" Foreground="#FFFDFBFB" Click="Addbtn_Click" Width="100" Height="30"/>

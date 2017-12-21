@@ -109,7 +109,7 @@ namespace HRMS
             editBtn.Height = double.NaN;
             editBtn.Style = Application.Current.FindResource("btnStyle") as Style;
             editBtn.Click += delegate {
-                editEmployee(EmpId, FileControls.getDepartment(DepName).departmentId);
+                editEmployee(EmpId, FileControls.getDepartment(DepName).departmentId,EmpName,HireDate);
             };
             //editBtn.Background = new SolidColorBrush(Color.FromRgb(21, 206, 60));
             PackIcon penIcon = new PackIcon();
@@ -138,12 +138,18 @@ namespace HRMS
             addEmployee.Show();
         }
 
-        private static void editEmployee(string empID, string depNo)
+        private static void editEmployee(string empID, string depNo,string name,string date)
         {
             EditEmployeeWindow editPage = new EditEmployeeWindow();
-
             editPage.EditIdBox.Text = empID;
-            editPage.EditDepartmentBox.Text = depNo.Trim('\0');
+            Department deps = FileControls.getDepartmentName(depNo);
+            ComboBoxItem defaultChoice = new ComboBoxItem();
+            defaultChoice.IsSelected = true;
+            defaultChoice.IsEnabled = false;
+            defaultChoice.Content = deps.departmentName;
+            editPage.EditDepartmentBox.Items.Add(defaultChoice);
+            editPage.EditDateBox.Text = date;
+            editPage.EditNameBox.Text = name;
             editPage.Show();
         }
 

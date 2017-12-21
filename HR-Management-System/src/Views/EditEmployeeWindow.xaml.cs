@@ -29,6 +29,14 @@ namespace HRMS
         private void EditLoad(object sender, RoutedEventArgs e)
         {
             BeforeEditId = EditIdBox.Text;
+            Department[] deps = FileControls.getArrayDep();
+            if (deps != null)
+            {
+                for (int i = 0; i < deps.Length; i++)
+                {
+                    EditDepartmentBox.Items.Add(deps[i].departmentName.Trim('\0'));
+                }
+            }
         }
        
         private void SubmitEdit_Click(object sender, RoutedEventArgs e)
@@ -36,7 +44,8 @@ namespace HRMS
             string editId = EditIdBox.Text;
             string editName = EditNameBox.Text;
             string editDate = EditDateBox.Text;
-            string editDep = EditDepartmentBox.Text;
+            Department dep = FileControls.getDepartment(EditDepartmentBox.Text);
+            string editDep = dep.departmentId;
             Department checkdep = FileControls.getDepartmentName(editDep);
             if (checkdep != null)
             {
