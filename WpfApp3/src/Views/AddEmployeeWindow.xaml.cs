@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 namespace HRMS
 {
-    public partial class employee : Window
+    public partial class AddEmployeeWindow : Window
     {
-        public employee()
+        public AddEmployeeWindow()
         {
             InitializeComponent();
         }
@@ -28,10 +28,10 @@ namespace HRMS
             string name = nameBox.Text;
             string date = DateBox.Text;
             string dep = DepartmentBox.Text;
-            Department checkdep = Functions.getDepartmentName(dep);
+            Department checkdep = FileControls.getDepartmentName(dep);
             if (checkdep != null)
             {
-                Functions.addEmployee(id, name, date, dep);
+                FileControls.addEmployee(id, name, date, dep);
                 this.Close();
             }
             else

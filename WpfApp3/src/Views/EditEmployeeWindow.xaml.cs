@@ -17,10 +17,10 @@ namespace HRMS
     /// <summary>
     /// Interaction logic for EditEmployee.xaml
     /// </summary>
-    public partial class EditEmployee : Window
+    public partial class EditEmployeeWindow : Window
     {
         string BeforeEditId;
-        public EditEmployee()
+        public EditEmployeeWindow()
         {
             InitializeComponent();
             
@@ -36,10 +36,10 @@ namespace HRMS
             string editName = EditNameBox.Text;
             string editDate = EditDateBox.Text;
             string editDep = EditDepartmentBox.Text;
-            Department checkdep = Functions.getDepartmentName(editDep);
+            Department checkdep = FileControls.getDepartmentName(editDep);
             if (checkdep != null)
             {
-                Functions.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
+                FileControls.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
                 this.Close();
             }
             else

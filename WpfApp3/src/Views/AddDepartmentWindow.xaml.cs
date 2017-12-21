@@ -17,9 +17,9 @@ namespace HRMS
     /// <summary>
     /// Interaction logic for department.xaml
     /// </summary>
-    public partial class department : Window
+    public partial class AddDepartmentWindow : Window
     {
-        public department()
+        public AddDepartmentWindow()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace HRMS
         {
             string depid = DepNoBox.Text;
             string depName = DepNameBox.Text;
-            Functions.addDepartment(depid, depName);           
+            FileControls.addDepartment(depid, depName);           
             this.Close();
 
         }

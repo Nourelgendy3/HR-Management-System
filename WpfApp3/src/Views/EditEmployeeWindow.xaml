@@ -1,4 +1,4 @@
-﻿<Window x:Class="HRMS.EditEmployee"
+﻿<Window x:Class="HRMS.EditEmployeeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,7 +19,7 @@
         <TextBox BorderThickness="0" MaxLength="10" x:Name="EditDateBox" HorizontalAlignment="Left" Height="25" Margin="230,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Background="White"/>
             <Label x:Name="label5" Content="Label" HorizontalAlignment="Left" Margin="539,155,-189.4,0" VerticalAlignment="Top" Width="100"/>
             <Button Background="#15ce19" x:Name="SubmitEdit" Content="Submit" Margin="182,177,182.6,0" VerticalAlignment="Top" Foreground="#FFFDFBFB" Click="SubmitEdit_Click"/>
-            <Image Source="info.png" x:Name="image" HorizontalAlignment="Right" Height="55" VerticalAlignment="Top" Width="63" Margin="0,11,34.6,0"/>
+            <Image Source="/HRMS;component/assets/info.png" x:Name="image" HorizontalAlignment="Right" Height="55" VerticalAlignment="Top" Width="63" Margin="0,11,34.6,0"/>
 
         </Grid>
     </Window>

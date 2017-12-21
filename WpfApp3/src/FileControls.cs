@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace HRMS
 {
-    public class Functions
+    public class FileControls
     {
-        static void Main4Functions(string[] args)
-        {
-        }
         //  Add employees to file and check if id is already used
         public static bool addEmployee(string employeeId, string employeeName, string hireDate, string departmentNumber, string fileName = "employees.txt")
         {
@@ -69,6 +66,7 @@ namespace HRMS
             f.Close();
             return true;
         }
+
         //  Add departments to file and check if department number is already used
         public static bool addDepartment(string departmentId, string departmentName, string fileName = "departments.txt")
         {
@@ -111,6 +109,7 @@ namespace HRMS
             sw.Close();
             return true;
         }
+
         // function return department<number,name> and takes department name as a parameter
         public static Department getDepartment(string reqDepName)
         {
@@ -139,6 +138,7 @@ namespace HRMS
             fs.Close();
             return null;
         }
+
         // function return department<number,name> and takes department id as a parameter
         public static Department getDepartmentName(string reqDepId)
         {
@@ -173,6 +173,7 @@ namespace HRMS
             }
             return null;
         }
+
         // function read emplyees file return list of employees
         public static List<Employee> getEmployee(string reqEmpName)
         {
@@ -321,9 +322,8 @@ namespace HRMS
             }
 
             return false;
-
-
         }
+
         //  function return all employees in required department
         public static List<Employee> getEmpInDep(string reqDepName)
         {
