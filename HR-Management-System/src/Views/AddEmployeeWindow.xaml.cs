@@ -34,20 +34,24 @@ namespace HRMS
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
+            bool done;
             Department deps = FileControls.getDepartment(DepartmentBox.Text);
             string id = IdBox.Text;
             string name = nameBox.Text;
             string date = DateBox.Text;
             string dep = deps.departmentId;
-            Department checkdep = FileControls.getDepartmentName(dep);
-            if (checkdep != null)
+            
+             done = FileControls.addEmployee(id, name, date, dep);
+            if (!done)
             {
-                FileControls.addEmployee(id, name, date, dep);
+                System.Windows.MessageBox.Show("ID already used");
+            }
+            else
+            {
                 HomeWindow.reload(FileControls.getArrayEmp());
                 this.Close();
             }
-            else
-                System.Windows.MessageBox.Show("Department Is not valid Employee Will Not Be Added");
+                
                
         }
     }

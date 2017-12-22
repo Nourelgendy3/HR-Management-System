@@ -41,20 +41,26 @@ namespace HRMS
        
         private void SubmitEdit_Click(object sender, RoutedEventArgs e)
         {
+            bool done;
             string editId = EditIdBox.Text;
             string editName = EditNameBox.Text;
             string editDate = EditDateBox.Text;
             Department dep = FileControls.getDepartment(EditDepartmentBox.Text);
             string editDep = dep.departmentId;
-            Department checkdep = FileControls.getDepartmentName(editDep);
-            if (checkdep != null)
+           
+                done=FileControls.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
+            if (!done)
             {
-                FileControls.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
+                System.Windows.MessageBox.Show("Id already used");
+
+            }
+            else
+            {
                 HomeWindow.reload(FileControls.getArrayEmp());
                 this.Close();
             }
-            else
-                System.Windows.MessageBox.Show("Department is invalid");
+            
+          
         }
     }
 }
