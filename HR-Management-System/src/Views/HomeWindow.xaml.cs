@@ -211,13 +211,21 @@ namespace HRMS
                     {
                         while (i != -1)
                         {
+                            
                             tmpDep = FileControls.getDepartmentName(tmpEmployeesList[i].departmentNumber);
-                            string srchEmpName = tmpEmployeesList[i].employeeName.Trim('\0');
-                            string srchDepName = tmpDep.departmentName.Trim('\0');
-                            string srchEmpid = tmpEmployeesList[i].id.Trim('\0');
-                            string srchHireDate = tmpEmployeesList[i].hireDate.Trim('\0');
-                            CreatePanel(srchEmpName, srchEmpid, srchHireDate, srchDepName);
-                            i--;
+                            if (tmpDep.departmentName == departmentFilter.SelectedItem.ToString() || departmentFilter.SelectedIndex==0)
+                            {
+                                string srchEmpName = tmpEmployeesList[i].employeeName.Trim('\0');
+                                string srchDepName = tmpDep.departmentName.Trim('\0');
+                                string srchEmpid = tmpEmployeesList[i].id.Trim('\0');
+                                string srchHireDate = tmpEmployeesList[i].hireDate.Trim('\0');
+                                CreatePanel(srchEmpName, srchEmpid, srchHireDate, srchDepName);
+                                i--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
                         }
                     }
                 }
