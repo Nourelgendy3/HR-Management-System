@@ -26,11 +26,20 @@ namespace HRMS
 
         private void AddDepBtn_Click(object sender, RoutedEventArgs e)
         {
+            bool done;
             string depid = DepNoBox.Text;
             string depName = DepNameBox.Text;
-            FileControls.addDepartment(depid, depName);
-            HomeWindow.reload(FileControls.getArrayEmp());
-            this.Close();
+           done= FileControls.addDepartment(depid, depName);
+            if (!done)
+            {
+                System.Windows.MessageBox.Show("Id already used");
+            }
+            else
+            {
+                HomeWindow.reload(FileControls.getArrayEmp());
+                this.Close();
+            }
+           
         }
 
         private void DepNameBox_TextChanged(object sender, TextChangedEventArgs e)
