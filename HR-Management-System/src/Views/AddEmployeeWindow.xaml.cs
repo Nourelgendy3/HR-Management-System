@@ -20,24 +20,53 @@ namespace HRMS
         {
             InitializeComponent();
         }
+        private void addEmpLoad(object sender, RoutedEventArgs e)
+        {
+            ComboBoxItem defaultChoice = new ComboBoxItem();
+            defaultChoice.IsSelected = true;
+            defaultChoice.IsEnabled = false;
+            defaultChoice.Content = "Departments";
+            DepartmentBox.Items.Add(defaultChoice);
+            Department[] deps = FileControls.getArrayDep();
+            if (deps != null)
+            {
+                for (int i = 0; i < deps.Length; i++)
+                {
+                    DepartmentBox.Items.Add(deps[i].departmentName.Trim('\0'));
+                }
+            }
+        }
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-
-            string id = IdBox.Text;
-            string name = nameBox.Text;
-            string date = DateBox.Text;
-            string dep = DepartmentBox.Text;
-            Department checkdep = FileControls.getDepartmentName(dep);
-            if (checkdep != null)
+           
+            if (DepartmentBox.SelectedIndex != 0)
             {
-                FileControls.addEmployee(id, name, date, dep);
-                HomeWindow.reload(FileControls.getArrayEmp());
-                this.Close();
+                bool done;
+                Department deps = FileControls.getDepartment(DepartmentBox.Text);
+                string id = IdBox.Text;
+                string name = nameBox.Text;
+                string date = DateBox.Text;
+                string dep = deps.departmentId;
+                done = FileControls.addEmployee(id, name, date, dep);
+
+                if (!done)
+                {
+                    System.Windows.MessageBox.Show("ID already used");
+                }
+                else
+                {
+                    HomeWindow.reload(FileControls.getArrayEmp());
+                    this.Close();
+                }
             }
             else
-                System.Windows.MessageBox.Show("Department Is not valid Employee Will Not Be Added");
-               
+            {
+                System.Windows.MessageBox.Show("You should choose a department");
+
+            }
+
+
         }
     }
 }

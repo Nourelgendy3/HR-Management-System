@@ -29,23 +29,38 @@ namespace HRMS
         private void EditLoad(object sender, RoutedEventArgs e)
         {
             BeforeEditId = EditIdBox.Text;
+            Department[] deps = FileControls.getArrayDep();
+            if (deps != null)
+            {
+                for (int i = 0; i < deps.Length; i++)
+                {
+                    EditDepartmentBox.Items.Add(deps[i].departmentName.Trim('\0'));
+                }
+            }
         }
        
         private void SubmitEdit_Click(object sender, RoutedEventArgs e)
         {
+            bool done;
             string editId = EditIdBox.Text;
             string editName = EditNameBox.Text;
             string editDate = EditDateBox.Text;
-            string editDep = EditDepartmentBox.Text;
-            Department checkdep = FileControls.getDepartmentName(editDep);
-            if (checkdep != null)
+            Department dep = FileControls.getDepartment(EditDepartmentBox.Text);
+            string editDep = dep.departmentId;
+           
+                done=FileControls.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
+            if (!done)
             {
-                FileControls.editEmployee(editId, BeforeEditId, editName, editDate, editDep);
+                System.Windows.MessageBox.Show("Id already used");
+
+            }
+            else
+            {
                 HomeWindow.reload(FileControls.getArrayEmp());
                 this.Close();
             }
-            else
-                System.Windows.MessageBox.Show("Department is invalid");
+            
+          
         }
     }
 }

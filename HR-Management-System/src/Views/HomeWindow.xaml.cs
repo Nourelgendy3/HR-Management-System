@@ -31,7 +31,8 @@ namespace HRMS
             departmentFilter = new ComboBox();
             mainPanel.HorizontalAlignment = HorizontalAlignment.Center;
             InitializeComponent();
-            logo.PreviewMouseDown += delegate {
+            logo.PreviewMouseDown += delegate
+            {
                 departmentFilter.SelectedIndex = 0;
                 Search.Text = null;
                 reload(FileControls.getArrayEmp());
@@ -108,8 +109,9 @@ namespace HRMS
             editBtn.Margin = new Thickness(20, 0, 0, 0);
             editBtn.Height = double.NaN;
             editBtn.Style = Application.Current.FindResource("btnStyle") as Style;
-            editBtn.Click += delegate {
-                editEmployee(EmpId, FileControls.getDepartment(DepName).departmentId);
+            editBtn.Click += delegate
+            {
+                editEmployee(EmpId, FileControls.getDepartment(DepName).departmentId, EmpName, HireDate);
             };
             //editBtn.Background = new SolidColorBrush(Color.FromRgb(21, 206, 60));
             PackIcon penIcon = new PackIcon();
@@ -125,7 +127,7 @@ namespace HRMS
             main.Content = innerContent;
             mainPanel.Children.Add(main);
         }
-  
+
         private void openAddDepartment(object sender, RoutedEventArgs e)
         {
             AddDepartmentWindow addDepartment = new AddDepartmentWindow();
@@ -138,12 +140,18 @@ namespace HRMS
             addEmployee.Show();
         }
 
-        private static void editEmployee(string empID, string depNo)
+        private static void editEmployee(string empID, string depNo, string name, string date)
         {
             EditEmployeeWindow editPage = new EditEmployeeWindow();
-
             editPage.EditIdBox.Text = empID;
-            editPage.EditDepartmentBox.Text = depNo.Trim('\0');
+            Department deps = FileControls.getDepartmentName(depNo);
+            ComboBoxItem defaultChoice = new ComboBoxItem();
+            defaultChoice.IsSelected = true;
+            defaultChoice.IsEnabled = false;
+            defaultChoice.Content = deps.departmentName;
+            editPage.EditDepartmentBox.Items.Add(defaultChoice);
+            editPage.EditDateBox.Text = date;
+            editPage.EditNameBox.Text = name;
             editPage.Show();
         }
 
@@ -186,9 +194,9 @@ namespace HRMS
                 }
             }
         }
-        
+
         // Implementation Needs to be changed for a better looking code
-        private void submitSearch(object sender, KeyEventArgs e)
+        private void OnSearch(object sender, KeyEventArgs e)
         {
             List<Employee> tmpEmployeesList = new List<Employee>();
             Employee TmpEmployee = new Employee();
@@ -205,14 +213,24 @@ namespace HRMS
                     {
                         while (i != -1)
                         {
+
                             tmpDep = FileControls.getDepartmentName(tmpEmployeesList[i].departmentNumber);
-                            string srchEmpName = tmpEmployeesList[i].employeeName.Trim('\0');
-                            string srchDepName = tmpDep.departmentName.Trim('\0');
-                            string srchEmpid = tmpEmployeesList[i].id.Trim('\0');
-                            string srchHireDate = tmpEmployeesList[i].hireDate.Trim('\0');
-                            CreatePanel(srchEmpName, srchEmpid, srchHireDate, srchDepName);
-                            i--;
+
+                            if (tmpDep.departmentName == departmentFilter.SelectedItem.ToString() || departmentFilter.SelectedIndex == 0)
+                            {
+                                string srchEmpName = tmpEmployeesList[i].employeeName.Trim('\0');
+                                string srchDepName = tmpDep.departmentName.Trim('\0');
+                                string srchEmpid = tmpEmployeesList[i].id.Trim('\0');
+                                string srchHireDate = tmpEmployeesList[i].hireDate.Trim('\0');
+                                CreatePanel(srchEmpName, srchEmpid, srchHireDate, srchDepName);
+                                i--;
+                            }
+                            else
+                            {
+                                i--;
+                            }
                         }
+
                     }
                 }
             }

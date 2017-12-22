@@ -33,7 +33,8 @@ namespace HRMS
 
                     if (id.CompareTo(employeeId) == 0)
                     {
-                        System.Windows.MessageBox.Show("ID already exixts");
+                        fs.Close();
+                        sr.Close();
                         return false;
                     }
                 }
@@ -198,7 +199,7 @@ namespace HRMS
                     string name = new string(employeeName);
                     string hireD = new string(hire_Date);
                     string depnumber = new string(departmentNum);
-                    if (name.CompareTo(reqEmpName) == 0)
+                    if (improveSearch(reqEmpName,name))
                     {
                         employee.id = id;
                         employee.employeeName = name;
@@ -281,7 +282,7 @@ namespace HRMS
             if (isFound)
             {
                 string strID = "", strname = "", strhiredate = "", strdepnum = "";
-                if (reqID == null)
+                if (reqID == "")
                 {
                     strID = new string(repID);
                 }
@@ -331,7 +332,7 @@ namespace HRMS
             dep = getDepartment(reqDepName);
             string reqDepID = dep.departmentId;
 
-            FileStream fs = new FileStream("employees.txt", FileMode.Open);
+            FileStream fs = new FileStream("employees.txt", FileMode.OpenOrCreate);
             StreamReader sr = new StreamReader(fs);
             List<Employee> employeesList = new List<Employee>();
 
@@ -440,6 +441,27 @@ namespace HRMS
                 return employees;
             }
             return null;
+        }
+        public static bool improveSearch(string query,string name)
+        {
+            bool isOkay = true;
+            if (query.Length > name.Length)
+                return false;
+            for(int i = 0; i < query.Length; i++)
+            {
+                if (query[i] == name[i])
+                {
+                    isOkay = true;
+                }
+                else
+                {
+                    isOkay = false;
+                    break;
+                }
+                    
+            }
+            return isOkay;
+
         }
     }
 }
