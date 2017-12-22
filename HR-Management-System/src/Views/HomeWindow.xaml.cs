@@ -55,6 +55,7 @@ namespace HRMS
                 }
             }
 
+            int currentChoice = departmentFilter.SelectedIndex;
             departmentFilter.Items.Clear();
             ComboBoxItem defaultChoice = new ComboBoxItem();
             defaultChoice.IsSelected = true;
@@ -70,6 +71,9 @@ namespace HRMS
                     departmentFilter.Items.Add(deps[i].departmentName.Trim('\0'));
                 }
             }
+
+            if (currentChoice == -1) currentChoice = 0;
+            departmentFilter.SelectedIndex = currentChoice;
         }
 
         public static void CreatePanel(string EmpName, string EmpId, string HireDate, string DepName)
