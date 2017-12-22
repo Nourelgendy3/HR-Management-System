@@ -33,7 +33,8 @@ namespace HRMS
 
                     if (id.CompareTo(employeeId) == 0)
                     {
-                        System.Windows.MessageBox.Show("ID already exixts");
+                        fs.Close();
+                        sr.Close();
                         return false;
                     }
                 }
@@ -331,7 +332,7 @@ namespace HRMS
             dep = getDepartment(reqDepName);
             string reqDepID = dep.departmentId;
 
-            FileStream fs = new FileStream("employees.txt", FileMode.Open);
+            FileStream fs = new FileStream("employees.txt", FileMode.OpenOrCreate);
             StreamReader sr = new StreamReader(fs);
             List<Employee> employeesList = new List<Employee>();
 
