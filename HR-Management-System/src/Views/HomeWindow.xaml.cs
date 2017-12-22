@@ -158,6 +158,7 @@ namespace HRMS
         // Implementation Needs to be changed for a better looking code
         private void DepcomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Search.Clear();
             Department[] deps = FileControls.getArrayDep();
             if (deps != null)
             {
@@ -202,6 +203,7 @@ namespace HRMS
             Employee TmpEmployee = new Employee();
             Department tmpDep = new Department();
             string srchQuery = Search.Text;
+            srchQuery = srchQuery.ToLower();
             mainPanel.Children.Clear();
             if (srchQuery != "")
             {
@@ -233,10 +235,6 @@ namespace HRMS
 
                     }
                 }
-            }
-            else
-            {
-                reload(FileControls.getArrayEmp());
             }
         }
     }
