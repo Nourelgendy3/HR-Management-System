@@ -14,7 +14,7 @@
         <Label x:Name="label2" Content="Employee Name :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="237,50,0,0"/>
         <TextBox BorderThickness="0" x:Name="nameBox" MaxLength="20" HorizontalAlignment="Left" Height="25" Margin="243,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="129" Background="White"/>
         <Label x:Name="label3" Content="Department:" HorizontalAlignment="Left" Margin="83,105,0,0" VerticalAlignment="Top"/>
-        <ComboBox BorderThickness="0" Background="White" x:Name="DepartmentBox" Margin="0,131,232.6,0"  VerticalAlignment="Top" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalContentAlignment="Center" Height="30" Padding="20,0,10,0" Cursor="Hand" Width="129"/>
+        <ComboBox BorderThickness="0" Background="White" x:Name="DepartmentBox" Margin="0,131,228.6,0"  VerticalAlignment="Top" HorizontalContentAlignment="Left" HorizontalAlignment="Right" VerticalContentAlignment="Center" Height="30" Padding="20,0,0,0" Cursor="Hand" Width="130"/>
         <Label x:Name="label4" Content="Date :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="243,105,0,0"/>
         <DatePicker BorderThickness="0" x:Name="DateBox"  HorizontalAlignment="Left" Height="25" Margin="243,131,0,0"  VerticalAlignment="Top" Width="129" Background="White"/>
         <Button  Style="{StaticResource MaterialDesignFlatButton}" Background="#15ce19" x:Name="AddEmpBtn" Content="Add" Margin="0,0,0,20" VerticalAlignment="Bottom" Foreground="#FFFDFBFB" Click="Addbtn_Click" Width="100" Height="30"/>

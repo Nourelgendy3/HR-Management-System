@@ -30,7 +30,6 @@ namespace HRMS
                     string name = new string(en);
                     string hireD = new string(hr);
                     string depnumber = new string(dn);
-
                     if (id.CompareTo(employeeId) == 0)
                     {
                         fs.Close();
