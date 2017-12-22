@@ -199,7 +199,7 @@ namespace HRMS
                     string name = new string(employeeName);
                     string hireD = new string(hire_Date);
                     string depnumber = new string(departmentNum);
-                    if (name.CompareTo(reqEmpName) == 0)
+                    if (improveSearch(reqEmpName,name))
                     {
                         employee.id = id;
                         employee.employeeName = name;
@@ -441,6 +441,27 @@ namespace HRMS
                 return employees;
             }
             return null;
+        }
+        public static bool improveSearch(string query,string name)
+        {
+            bool isOkay = true;
+            if (query.Length > name.Length)
+                return false;
+            for(int i = 0; i < query.Length; i++)
+            {
+                if (query[i] == name[i])
+                {
+                    isOkay = true;
+                }
+                else
+                {
+                    isOkay = false;
+                    break;
+                }
+                    
+            }
+            return isOkay;
+
         }
     }
 }
