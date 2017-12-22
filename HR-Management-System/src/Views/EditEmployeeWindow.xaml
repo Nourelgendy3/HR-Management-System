@@ -15,7 +15,7 @@
         <Label x:Name="label2" Content="Employee Name :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,50,0,0"/>
         <TextBox BorderThickness="0" MaxLength="20" x:Name="EditNameBox" HorizontalAlignment="Left" Height="25" Margin="230,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Background="White"/>
         <Label x:Name="label3" Content="Department:" HorizontalAlignment="Left" Margin="65,105,0,0" VerticalAlignment="Top"/>
-        <ComboBox BorderThickness="0" Background="White" x:Name="EditDepartmentBox" Margin="0,136,258.6,0"  VerticalAlignment="Top" HorizontalContentAlignment="Left" HorizontalAlignment="Right" VerticalContentAlignment="Center" Height="30" Padding="20,0,10,0" Cursor="Hand" Width="115"/>
+        <ComboBox BorderThickness="0" Background="White" x:Name="EditDepartmentBox" Margin="0,136,258.6,0"  VerticalAlignment="Top" HorizontalContentAlignment="Left" HorizontalAlignment="Right" VerticalContentAlignment="Center" Height="30" Padding="2,0,10,0" Cursor="Hand" Width="115"/>
         <Label x:Name="label4" Content="Hire Date :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,105,0,0"/>
         <DatePicker BorderThickness="0"  x:Name="EditDateBox" HorizontalAlignment="Left" Height="25" Margin="230,131,0,0"  VerticalAlignment="Top" Width="115" Background="White"/>
         <Label x:Name="label5" Content="Label" HorizontalAlignment="Left" Margin="539,155,-189.4,0" VerticalAlignment="Top" Width="100"/>

@@ -159,7 +159,6 @@ namespace HRMS
             editPage.Show();
         }
 
-        // Implementation Needs to be changed for a better looking code
         private void DepcomboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Search.Clear();
@@ -175,7 +174,6 @@ namespace HRMS
                             Department tmpDep = new Department();
                             List<Employee> tmpEmployeesList = FileControls.getEmpInDep(deps[i].departmentName);
                             int j = tmpEmployeesList.Count() - 1;
-                            Console.WriteLine(tmpEmployeesList.Count());
                             if (j >= 0)
                             {
                                 mainPanel.Children.Clear();
@@ -200,7 +198,6 @@ namespace HRMS
             }
         }
 
-        // Implementation Needs to be changed for a better looking code
         private void OnSearch(object sender, KeyEventArgs e)
         {
             List<Employee> tmpEmployeesList = new List<Employee>();

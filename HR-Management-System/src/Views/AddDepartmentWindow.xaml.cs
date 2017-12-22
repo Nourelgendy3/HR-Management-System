@@ -39,12 +39,6 @@ namespace HRMS
                 HomeWindow.reload(FileControls.getArrayEmp());
                 this.Close();
             }
-           
-        }
-
-        private void DepNameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

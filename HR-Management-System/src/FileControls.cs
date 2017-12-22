@@ -32,13 +32,13 @@ namespace HRMS
                     string depnumber = new string(dn);
                     if (id.CompareTo(employeeId) == 0)
                     {
-                        fs.Close();
                         sr.Close();
+                        fs.Close();
                         return false;
                     }
                 }
-                fs.Close();
                 sr.Close();
+                fs.Close();
             }
             FileStream f = new FileStream("employees.txt", FileMode.Append);
             StreamWriter sw = new StreamWriter(f);
@@ -46,16 +46,10 @@ namespace HRMS
             char[] emp_name = new char[20];
             char[] hire_date = new char[10];
             char[] departmentNum = new char[5];
-            // if (employeeId.Length > 5) return false;
+
             employeeId.CopyTo(0, emp_id, 0, employeeId.Length);
-
-            //  if (employeeName.Length > 20) return false;
             employeeName.CopyTo(0, emp_name, 0, employeeName.Length);
-
-            // if (hireDate.Length > 10) return false;
             hireDate.CopyTo(0, hire_date, 0, hireDate.Length);
-
-            // if (departmentNumber.Length > 5) return false;
             departmentNumber.CopyTo(0, departmentNum, 0, departmentNumber.Length);
 
             sw.Write(emp_id, 0, 5);
@@ -99,14 +93,13 @@ namespace HRMS
             char[] departmentID = new char[5];
             char[] DepartmentName = new char[20];
 
-            // if (departmentID.Length > 5) return false;
             departmentId.CopyTo(0, departmentID, 0, departmentId.Length);
-            //if (departmentName.Length > 20) return false;
             departmentName.CopyTo(0, DepartmentName, 0, departmentName.Length);
 
             sw.Write(departmentID, 0, 5);
             sw.Write(DepartmentName, 0, 20);
             sw.Close();
+            f.Close();
             return true;
         }
 
@@ -142,7 +135,6 @@ namespace HRMS
         // function return department<number,name> and takes department id as a parameter
         public static Department getDepartmentName(string reqDepId)
         {
-
             Department department = new Department();
             if (File.Exists("departments.txt"))
             {
@@ -156,8 +148,6 @@ namespace HRMS
                     sr.Read(Name, 0, 20);
                     string id = new string(ID).Trim('\0');
                     string name = new string(Name).Trim('\0');
-                    Console.WriteLine(reqDepId);
-                    Console.WriteLine(name);
                     if (id.CompareTo(reqDepId) == 0)
                     {
                         department.departmentId = reqDepId;
@@ -198,7 +188,7 @@ namespace HRMS
                     string name = new string(employeeName);
                     string hireD = new string(hire_Date);
                     string depnumber = new string(departmentNum);
-                    if (improveSearch(reqEmpName,name))
+                    if (improveSearch(reqEmpName, name))
                     {
                         employee.id = id;
                         employee.employeeName = name;
@@ -255,10 +245,6 @@ namespace HRMS
                 string rechiredate = new string(hiredate);
                 string recdepnum = new string(depnum);
 
-                //Console.WriteLine(recID.CompareTo(reqID) != 0);
-                Console.WriteLine(recID.Trim('\0').CompareTo(reqID) == 0);
-                Console.WriteLine(reqID.Trim('\0').CompareTo(serID) != 0);
-
                 if (recID.Trim('\0').CompareTo(reqID) == 0 && reqID.Trim('\0').CompareTo(serID) != 0)
                 {
                     sw.Close();
@@ -274,7 +260,6 @@ namespace HRMS
                     rechiredate.CopyTo(0, repHireDate, 0, 10);
                     recdepnum.CopyTo(0, repDepnum, 0, 5);
                     isFound = true;
-                    // break;
                 }
             }
             sr.Close();
@@ -360,12 +345,12 @@ namespace HRMS
                     employeesList.Add(employee);
                 }
             }
-            fs.Close();
             sr.Close();
+            fs.Close();
             return employeesList;
         }
-        //  function return all departments in department file
 
+        // Function return all departments in department file
         public static Department[] getArrayDep()
         {
             if (File.Exists("departments.txt"))
@@ -441,28 +426,17 @@ namespace HRMS
             }
             return null;
         }
-        public static bool improveSearch(string query,string name)
+
+        public static bool improveSearch(string query, string name)
         {
-            bool isOkay = true;
             if (query.Length > name.Length)
                 return false;
-            for(int i = 0; i < query.Length; i++)
+            for (int i = 0; i < query.Length; i++)
             {
-                if (query[i] == name[i])
-                {
-                    isOkay = true;
-                }
-                else
-                {
-                    isOkay = false;
-                    break;
-                }
-                    
+                if (query[i] != name[i])
+                    return false;
             }
-            return isOkay;
-
+            return true;
         }
     }
 }
-
-

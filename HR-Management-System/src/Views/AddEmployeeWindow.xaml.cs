@@ -20,6 +20,7 @@ namespace HRMS
         {
             InitializeComponent();
         }
+
         private void addEmpLoad(object sender, RoutedEventArgs e)
         {
             ComboBoxItem defaultChoice = new ComboBoxItem();
@@ -39,9 +40,8 @@ namespace HRMS
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-           
-            if (DepartmentBox.SelectedIndex != 0)
-            {
+           if (DepartmentBox.SelectedIndex != 0)
+           {
                 bool done;
                 Department deps = FileControls.getDepartment(DepartmentBox.Text);
                 string id = IdBox.Text;
@@ -60,14 +60,11 @@ namespace HRMS
                     HomeWindow.reload(FileControls.getArrayEmp());
                     this.Close();
                 }
-            }
-            else
-            {
+           }
+           else
+           {
                 System.Windows.MessageBox.Show("You should choose a department");
-
-            }
-
-
+           }
         }
     }
 }
