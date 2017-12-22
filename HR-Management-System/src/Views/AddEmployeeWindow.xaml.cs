@@ -22,6 +22,11 @@ namespace HRMS
         }
         private void addEmpLoad(object sender, RoutedEventArgs e)
         {
+            ComboBoxItem defaultChoice = new ComboBoxItem();
+            defaultChoice.IsSelected = true;
+            defaultChoice.IsEnabled = false;
+            defaultChoice.Content = "Departments";
+            DepartmentBox.Items.Add(defaultChoice);
             Department[] deps = FileControls.getArrayDep();
             if (deps != null)
             {
@@ -34,25 +39,34 @@ namespace HRMS
 
         private void Addbtn_Click(object sender, RoutedEventArgs e)
         {
-            bool done;
-            Department deps = FileControls.getDepartment(DepartmentBox.Text);
-            string id = IdBox.Text;
-            string name = nameBox.Text;
-            string date = DateBox.Text;
-            string dep = deps.departmentId;
-            
-             done = FileControls.addEmployee(id, name, date, dep);
-            if (!done)
+           
+            if (DepartmentBox.SelectedIndex != 0)
             {
-                System.Windows.MessageBox.Show("ID already used");
+                bool done;
+                Department deps = FileControls.getDepartment(DepartmentBox.Text);
+                string id = IdBox.Text;
+                string name = nameBox.Text;
+                string date = DateBox.Text;
+                string dep = deps.departmentId;
+                done = FileControls.addEmployee(id, name, date, dep);
+
+                if (!done)
+                {
+                    System.Windows.MessageBox.Show("ID already used");
+                }
+                else
+                {
+                    HomeWindow.reload(FileControls.getArrayEmp());
+                    this.Close();
+                }
             }
             else
             {
-                HomeWindow.reload(FileControls.getArrayEmp());
-                this.Close();
+                System.Windows.MessageBox.Show("You should choose a department");
+
             }
-                
-               
+
+
         }
     }
 }

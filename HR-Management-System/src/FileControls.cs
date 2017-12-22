@@ -282,7 +282,7 @@ namespace HRMS
             if (isFound)
             {
                 string strID = "", strname = "", strhiredate = "", strdepnum = "";
-                if (reqID == null)
+                if (reqID == "")
                 {
                     strID = new string(repID);
                 }
