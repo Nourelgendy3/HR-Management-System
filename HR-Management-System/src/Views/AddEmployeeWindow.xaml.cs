@@ -46,19 +46,30 @@ namespace HRMS
                 Department deps = FileControls.getDepartment(DepartmentBox.Text);
                 string id = IdBox.Text;
                 string name = nameBox.Text;
-                name=name.ToLower();
+                name =name.ToLower();
                 string date = DateBox.Text;
                 string dep = deps.departmentId;
-                done = FileControls.addEmployee(id, name, date, dep);
+                if(id=="")
+                    System.Windows.MessageBox.Show("you must enter ID");
+                else if (name== "")
+                 System.Windows.MessageBox.Show("you must enter name");
+                else if (date == "")
+                    System.Windows.MessageBox.Show("you must enter date");
+                else if (dep == "")
+                    System.Windows.MessageBox.Show("you must pick a department");
+                if (id != "" && date != "" && name != "" && dep != "")
+                {
+                    done = FileControls.addEmployee(id, name, date, dep);
 
-                if (!done)
-                {
-                    System.Windows.MessageBox.Show("ID already used");
-                }
-                else
-                {
-                    HomeWindow.reload(FileControls.getArrayEmp());
-                    this.Close();
+                    if (!done)
+                    {
+                        System.Windows.MessageBox.Show("ID already used");
+                    }
+                    else
+                    {
+                        HomeWindow.reload(FileControls.getArrayEmp());
+                        this.Close();
+                    }
                 }
            }
            else
