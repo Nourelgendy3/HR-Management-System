@@ -29,15 +29,23 @@ namespace HRMS
             bool done;
             string depid = DepNoBox.Text;
             string depName = DepNameBox.Text;
-           done= FileControls.addDepartment(depid, depName);
-            if (!done)
+             if (depid == "")
+                System.Windows.MessageBox.Show("you must enter ID");
+            else if (depName == "")
+                System.Windows.MessageBox.Show("you must enter a name");
+            if (depName != "" && depid != "")
             {
-                System.Windows.MessageBox.Show("Id already used");
-            }
-            else
-            {
-                HomeWindow.reload(FileControls.getArrayEmp());
-                this.Close();
+                done = FileControls.addDepartment(depid, depName);
+                if (!done)
+                {
+                    System.Windows.MessageBox.Show("Id already used");
+                }
+
+                else
+                {
+                    HomeWindow.reload(FileControls.getArrayEmp());
+                    this.Close();
+                }
             }
         }
     }
